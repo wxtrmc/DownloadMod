@@ -1,0 +1,74 @@
+plugins {
+	id 'fabric-loom' version '1.13-SNAPSHOT'
+}
+
+def target = (findProperty('mc') ?: project.default_target).toString()
+def targetFile = file("versions/${target}.properties")
+if (!targetFile.exists()) {
+	def known = file('versions').listFiles().collect { it.name.replace('.properties', '') }.sort().join(', ')
+	throw new GradleException("Unknown target '${target}'. Use -Pmc=<one of: ${known}>")
+}
+def tp = new Properties()
+targetFile.withInputStream { tp.load(it) }
+
+layout.buildDirectory.set(file("build/${target}"))
+
+group = project.maven_group
+version = "${project.mod_version}+mc${tp.getProperty('jar_range')}"
+
+base {
+	archivesName = project.archive_name
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir "src/compat/${tp.getProperty('compat')}/java"
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${tp.getProperty('minecraft_version')}"
+	mappings "net.fabricmc:yarn:${tp.getProperty('yarn_mappings')}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${tp.getProperty('fabric_version')}"
+
+	def tm = "3.12.0"
+	[
+		"com.twelvemonkeys.imageio:imageio-webp:${tm}",
+		"com.twelvemonkeys.imageio:imageio-core:${tm}",
+		"com.twelvemonkeys.imageio:imageio-metadata:${tm}",
+		"com.twelvemonkeys.common:common-lang:${tm}",
+		"com.twelvemonkeys.common:common-io:${tm}",
+		"com.twelvemonkeys.common:common-image:${tm}"
+	].each { dep ->
+		implementation dep
+		include dep
+	}
+}
+
+processResources {
+	def modVersion = project.mod_version
+	def mcRange = tp.getProperty('mc_range')
+	inputs.property "version", modVersion
+	inputs.property "mc_range", mcRange
+	filesMatching("fabric.mod.json") {
+		expand "version": modVersion, "mc_range": mcRange
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.release = 21
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.register('dist', Copy) {
+	from remapJar.archiveFile
+	into rootProject.layout.projectDirectory.dir('dist')
+}

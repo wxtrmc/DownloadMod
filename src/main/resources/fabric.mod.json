@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "downloadmod",
+  "name": "Download Mod",
+  "version": "${version}",
+  "description": "Search Modrinth and install mods, resource packs, shaders and data packs from inside Minecraft.",
+  "authors": [
+    "MishariM12752"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.downloadmod.DownloadModClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "fabric-screen-api-v1": "*",
+    "minecraft": "${mc_range}",
+    "java": ">=21"
+  },
+  "icon": "assets/downloadmod/icon.png",
+  "contact": {
+    "discord": "https://discord.gg/ZFfxJevHrg"
+  }
+}
