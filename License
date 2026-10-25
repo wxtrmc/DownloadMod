@@ -36,3 +36,11 @@ Copyright (c) 2026 WXTRMC Team. All rights reserved.
 7. TERMINATION
    If you break any of these terms, your permission to use
    this code ends immediately.
+
+8. MOD LICENSE
+   Some files in this project (for example fabric.mod.json) may
+   show "All-Rights-Reserved" in their license field. That field
+   is only a label required by the mod loader. The terms in this
+   file (WXTRMC Team License v1.0) are the real license and take
+   priority over any other license text, label or metadata inside
+   the project, the mod jar, or any page where it is published.
