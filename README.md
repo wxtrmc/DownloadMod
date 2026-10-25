@@ -5,7 +5,7 @@
 **Search Modrinth and install mods, resource packs, shaders and data packs without leaving Minecraft.**
 
 [![Available for Fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)](https://fabricmc.net/)
-[![Chat with us on Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/ZFfxJevHrg)
+[![Chat with us on Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/X6xZvRRQ9s)
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21.11-62B47A?style=flat-square)
 ![Loader](https://img.shields.io/badge/Loader-Fabric-DBD0B4?style=flat-square)
