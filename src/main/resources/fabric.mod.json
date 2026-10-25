@@ -7,7 +7,7 @@
   "authors": [
     "MishariM12752"
   ],
-  "license": "All-Rights-Reserved",
+  "license": "WXTRMC Team License v1.0",
   "environment": "client",
   "entrypoints": {
     "client": [
