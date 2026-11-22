@@ -18,7 +18,7 @@
 
 Download Mod adds a menu to Minecraft where you can search Modrinth and install mods, resource packs, shaders and data packs without leaving the game. It also lists the mods you already have installed, and has a short list of popular servers you can add to your server list.
 
-It is a client-side mod for Fabric on Minecraft 1.21.11. You need **Fabric Loader** and **Fabric API**.
+It is a client-side mod for Fabric on Minecraft 1.21 To 26.3. You need **Fabric Loader** and **Fabric API**.
 
 ## Table of Contents
 
