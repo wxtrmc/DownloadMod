@@ -10,10 +10,7 @@
       gradlew.bat
       gradle/wrapper/
       README.md
-      ReadmeModrinth.md
-      ReadmeCurseForge.md
       Project-Sturctare.md
-      WhatFile.md
       src/main/
         resources/
           fabric.mod.json
